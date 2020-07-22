@@ -1,3 +1,4 @@
 # api-instagram-camera-ionic
 
-# Instalación de la API Camera utilizando capactior:
+### Instalación de la API Camera utilizando capactior:
+
