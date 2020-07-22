@@ -48,3 +48,14 @@ import { Instagram} from '@ionic-native/instagram/ngx';
 })
 export class AppModule {}
 ```
+### Creación de componentes para cargar una imagen a la camara
+Para realizar esto creamos un componente para poder reutilizar el código que vayamos a generar. A cotinuación mostramos el html del componente:
+```bash
+<ion-button size="full" (click)="cargar()">
+  <ion-icon [name]="icono"></ion-icon> 
+</ion-button>
+```
+Una vez creado el html, pasamos a crear los métodos del componente. A continuación explicamos las variables que necesitamos:
+* currentImage: Esta varaible nos dara la dirección de la imagen a cargar 
+* salida: Esta variable sera la salida del componente el cual sera un tipo **@Ouput()**
+* icono: Una variable que pone el ícono del boton pero que es un dato de entrada del componente **@Input()**
