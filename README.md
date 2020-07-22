@@ -99,4 +99,38 @@ export class ImageLoaderComponent implements OnInit {
 ```
 Como podemos ver tenemos el método cargar que lo que hace es obtener las opciones de la imagen que vamos a cargar y a la final hacemos un **getPicture()** para mandar como salida la dirección de la imagen cargada, es muy importante que el método sea **async**
 
+### Creación de componentes para compartir la imagen a instagram
+Primero mostramos el html para poder después realizar los métodos para el componente. A continuación el html
+```bash
+<ion-button size="full" (click)="compartir()">
+  Compartir foto en Instagram
+</ion-button>
+```
+Ahora procedemos a ver el componente el cual requiere de una variable:
+* url: esta variable es la dirección de la imagen que necesitamos para poder obtener la imagen y compartirla, es de tipo **@Input()**
+Presentamos el código del componente a continuación:
+```bash
+import { Instagram } from '@ionic-native/instagram/ngx';
 
+@Component({
+  selector: 'app-instagram-shared',
+  templateUrl: './instagram-shared.component.html',
+  styleUrls: ['./instagram-shared.component.scss'],
+})
+export class InstagramSharedComponent implements OnInit {
+
+  @Input() url:string;
+
+  constructor(private instagram:Instagram) { }
+
+  ngOnInit() {}
+
+  compartir(){
+    this.instagram.share(this.url,'Compartiendo imagen').then(()=>{
+      
+    })
+  }
+
+}
+```
+Como podemos ver importamos el módulo de instagram, y a la misma utilizamos el método share el cual nos permite compartir la imagen utilizando el parametro la url o dirección de la imagen
