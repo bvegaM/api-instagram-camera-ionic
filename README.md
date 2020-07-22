@@ -59,3 +59,44 @@ Una vez creado el html, pasamos a crear los métodos del componente. A continuac
 * currentImage: Esta varaible nos dara la dirección de la imagen a cargar 
 * salida: Esta variable sera la salida del componente el cual sera un tipo **@Ouput()**
 * icono: Una variable que pone el ícono del boton pero que es un dato de entrada del componente **@Input()**
+
+El código se muestra a continuación:
+```bash
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Camera,CameraOptions } from '@ionic-native/camera/ngx';
+
+@Component({
+  selector: 'app-image-loader',
+  templateUrl: './image-loader.component.html',
+  styleUrls: ['./image-loader.component.scss'],
+})
+export class ImageLoaderComponent implements OnInit {
+
+  currentImage = null;
+  @Input()  icono:string;
+  @Output() salida=new EventEmitter<any>();;
+
+  constructor(private camera:Camera) { }
+
+  ngOnInit() {}
+
+  async cargar(){
+    let options: CameraOptions = {
+      quality         :100,
+      destinationType :this.camera.DestinationType.DATA_URL,
+      encodingType    : this.camera.EncodingType.JPEG,
+      sourceType      : this.camera.PictureSourceType.PHOTOLIBRARY
+    }
+
+    await this.camera.getPicture(options).then(data=>{
+      this.salida.emit(this.currentImage = 'data:image/jpeg;base64,'+data);
+    });
+    
+    
+  }
+
+}
+```
+Como podemos ver tenemos el método cargar que lo que hace es obtener las opciones de la imagen que vamos a cargar y a la final hacemos un **getPicture()** para mandar como salida la dirección de la imagen cargada, es muy importante que el método sea **async**
+
+
