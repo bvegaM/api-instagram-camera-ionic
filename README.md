@@ -178,3 +178,5 @@ export class HomePage {
 ```
 En el ts lo único que se hace es obtener la dirección de la imagen y mandarla a la variable imagen.
 
+### Resultados
+A continuación veremos los resultados de lo realizado
