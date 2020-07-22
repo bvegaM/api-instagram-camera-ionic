@@ -181,10 +181,10 @@ En el ts lo único que se hace es obtener la dirección de la imagen y mandarla 
 ### Resultados
 A continuación veremos los resultados de lo realizado
 
-<img alt="" src="uno.jpeg">
+<img alt="" src="uno.jpeg" width="50" height="50">
 
-<img alt="" src="dos.jpeg">
+<img alt="" src="dos.jpeg" width="50" height="50">
 
-<img alt="" src="tres.jpeg">
+<img alt="" src="tres.jpeg" width="50" height="50">
 
-<img alt="" src="cuatro.jpeg">
+<img alt="" src="cuatro.jpeg" width="50" height="50">
