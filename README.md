@@ -178,6 +178,19 @@ export class HomePage {
 ```
 En el ts lo único que se hace es obtener la dirección de la imagen y mandarla a la variable imagen.
 
+Se pidio que se cree un mensaje de que la imagen se compartio satisfactoriamente, sin embargo para este caso no es necesario dado que esta api te manda directamente a instagram asegurandote de compartir la imagen, por lo que mostrar un mensaje a la misma no es necesario. Sin embargo se creo un código de alerta para que se muestre la misma y lo mostramos a continuación
+
+```bash
+async satisfactorio(mensaje){
+    const alert = await this.alertCtrl.create({
+      header: 'Correcto',
+      subHeader: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+```
+
 ### Resultados
 A continuación veremos los resultados de lo realizado
 
