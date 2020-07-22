@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,11 +9,19 @@ export class HomePage {
 
   imagen=null;
 
-  constructor() {}
+  constructor(private alertCtrl:AlertController) {}
 
   respuesta(src){
     console.log(src)
     this.imagen=src
+  }
+  async satisfactorio(mensaje){
+    const alert = await this.alertCtrl.create({
+      header: 'Correcto',
+      subHeader: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

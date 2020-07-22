@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Instagram } from '@ionic-native/instagram/ngx';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-instagram-shared',
@@ -9,14 +10,15 @@ import { Instagram } from '@ionic-native/instagram/ngx';
 export class InstagramSharedComponent implements OnInit {
 
   @Input() url:string;
+  @Output() salida=new EventEmitter<any>();
 
-  constructor(private instagram:Instagram) { }
+  constructor(private instagram:Instagram,private loadingCtrl: LoadingController) { }
 
   ngOnInit() {}
 
   compartir(){
     this.instagram.share(this.url,'Compartiendo imagen').then(()=>{
-      
+      this.salida.emit("imagen compartda satisfactoriamente")
     })
   }
 

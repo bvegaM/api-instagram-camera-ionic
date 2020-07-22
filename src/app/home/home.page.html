@@ -4,10 +4,11 @@
       API Instagram Share
     </ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content padding>
   <img [src]="imagen" *ngIf="imagen">
-  <app-instagram-shared [url]="imagen"></app-instagram-shared>
+  <app-instagram-shared [url]="imagen"  (salida)="satisfactorio($event)"></app-instagram-shared>
   <app-image-loader [icono]="'camera'" (salida)="respuesta($event)"></app-image-loader>
 </ion-content>

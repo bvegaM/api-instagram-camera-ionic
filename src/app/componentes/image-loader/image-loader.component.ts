@@ -10,7 +10,7 @@ export class ImageLoaderComponent implements OnInit {
 
   currentImage = null;
   @Input()  icono:string;
-  @Output() salida=new EventEmitter<any>();;
+  @Output() salida=new EventEmitter<any>();
 
   constructor(private camera:Camera) { }
 
