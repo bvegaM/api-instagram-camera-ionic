@@ -134,3 +134,47 @@ export class InstagramSharedComponent implements OnInit {
 }
 ```
 Como podemos ver importamos el módulo de instagram, y a la misma utilizamos el método share el cual nos permite compartir la imagen utilizando el parametro la url o dirección de la imagen
+
+### Código de la página inicial
+**html**
+```bash
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      API Instagram Share
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img [src]="imagen" *ngIf="imagen">
+  <app-instagram-shared [url]="imagen"></app-instagram-shared>
+  <app-image-loader [icono]="'camera'" (salida)="respuesta($event)"></app-image-loader>
+</ion-content>
+
+```
+En lo primero podemos ver como mandamos a la entrada del ícono el valor de camara en el componente de app-image-uploader, de la misma manera vemos como en el componente app-instagram-shared mandamos la variable url el cual esta en el componente .ts. A la final cargamos la variable url con el dato salida del componente app-image-loader.
+**.ts**
+```bash
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage {
+
+  imagen=null;
+
+  constructor() {}
+
+  respuesta(src){
+    console.log(src)
+    this.imagen=src
+  }
+
+}
+```
+En el ts lo único que se hace es obtener la dirección de la imagen y mandarla a la variable imagen.
+
